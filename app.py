@@ -34,18 +34,38 @@ def welcome():
 
 @app.route("/api/v1.0/precipitation")
 def precipitation():
+    session = Session(engine)
     prcp_results = session.query(Measurement.date, Measurement.prcp).\
                 filter(func.strftime("%Y-%m-%d", Measurement.date) >= dt.date(2016, 8, 23)).\
                 filter(func.strftime("%Y-%m-%d", Measurement.date) <= dt.date(2017, 8, 23)).all()
 
-    prec_dict = {}
-    for result in prcp_results:
-        prec_dict["Date"] = result[0][0],
-        prec_dict["Precipitation"] = result[0][1]})
+    session.close()
+
+    prec_list = []
+    for date, prcp in prcp_results:
+        prec_dict = {}
+        prec_dict["date"] = date
+        prec_dict["prcp"] = prcp
+        prec_list.append(prec_dict)
+    return jsonify(prec_list)
+
+@app.route("/api/v1.0/stations")
+def station():
+    station_query = session.query(Station.station, func.count(Measurement.station)).\
+                join(Station, Station.station == Measurement.station).\
+                group_by(Station.station).\
+                order_by(func.count(Measurement.station).desc()).all()
+    return jsonify(station_query)
     
-    return jsonify(prcp_dict)
 
-
+@app.route("/api/v1.0/tobs")
+def Tobs():
+    most_active_station = "USC00519281"
+    active_station_observation = session.query(Measurement.date, Measurement.tobs).\
+                                filter_by(station = most_active_station).\
+                                filter(func.strftime("%Y-%m-%d", Measurement.date) >= dt.date(2016, 8, 23)).all()
+                                
+    return jsonify(active_station_observation)
 
 
 if __name__ == "__main__":
