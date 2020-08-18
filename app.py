@@ -34,9 +34,9 @@ def welcome():
         f"To get dates and temperature of the most active station for the last year :<br/>"
         f"/api/v1.0/tobs<br/><br/>"
         f"To get minimum, maximum and average temperature of all dates greater than and equal to the start date (date should be in yyyymmdd) :<br/>"
-        f"/api/v1.0/start_date<br/><br/>"
+        f"/api/v1.0/&#60;start_date&#62;<br/><br/>"
         f"To get minimum, maximum and average temperature of dates between the start and end date inclusive (date should be in yyyymmdd) :<br/>"
-        f"/api/v1.0/start_date/end_date<br/><br/>"
+        f"/api/v1.0/&#60;start_date&#62;/&#60;end_date&#62;<br/><br/>"
         f"__________________________<br/>"
     )
 
