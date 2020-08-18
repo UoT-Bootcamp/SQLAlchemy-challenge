@@ -91,7 +91,7 @@ Available Routes:
     * Return a JSON list of temperature observations (TOBS) for the previous year.
 
 
-* /api/v1.0/<start> and /api/v1.0/<start>/<end>
+* /api/v1.0/&#60;start&#62; and /api/v1.0/&#60;start&#62;/&#60;end&#62;
     * Return a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start or start-end range.
     * When given the start only, calculate TMIN, TAVG, and TMAX for all dates greater than and equal to the start date.
     * When given the start and the end date, calculate the TMIN, TAVG, and TMAX for dates between the start and end date inclusive.
