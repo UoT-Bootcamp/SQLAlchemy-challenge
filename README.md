@@ -68,7 +68,9 @@ For station analysis, I will do following analysis:
 
 # Flask API
 
-After doing the analysis, I designed a Flask API. Below are the routes:
+After doing the analysis, I designed a Flask API. You can view the API here [Flask API](https://github.com/UoT-Bootcamp/SQLAlchemy-challenge/blob/master/app.py).
+
+Available Routes:
 
 * /
   * Home page.
