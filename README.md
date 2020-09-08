@@ -1,4 +1,3 @@
-# SQLAlchemy-challenge
 
 # SURF Up!
 
