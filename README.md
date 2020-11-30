@@ -1,5 +1,5 @@
 
-# SURF Up!
+# SURF Up! - SQLAlchemy Challenge
 
 I have decided to treat myself to a long holiday vacation in Honolulu, Hawaii! To plan the trip, I need to do some climate analysis on the area.
 
